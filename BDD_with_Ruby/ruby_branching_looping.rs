@@ -1,39 +1,35 @@
-* Ruby Branching and Looping
+# Ruby Branching and Looping
 
-* Practice: Ping-Pong Test
+# Practice: Ping-Pong Test
 
+# Practice: More Complex Branching
 
+# Now, play around with elsif, &(), |(), and !() to get the hang of how to use them.
+# Create a variable called grade and set it equal to A, B, C, D or F. Use the above tools to print out one message if the grade is an A, one message if the grade is a B or a C, and one message if the grade is D or F.
+# Create a variable called temperature and set it equal to a Fixnum to represent a number of degrees Fahrenheit. Check to see if temperature is within 60-80 degrees, and if it is then print out "It's balmy outside!", and a different message if it isn't. You will have to use a combination of a few of these: <() (less-than), <=() (less-than-or-equal-to), >() (greater-than), >=() (greater-than-or-equal-to) and &().
+# Create a variable to store your first name. Then use if and else to print one message if your name begins with a letter between A and M, and a different message if it begins with a letter between N and Z. Hint: Remember the String#split method and the Array#at method from the section on "Arrays and ranges". Also, you can check if a number or letter is within a range by using the Range#include? method. For example: (0..4).include?(1) will return true because 1 is between 0 and 4.
 
-* Practice: More Complex Branching
+# For more complex branching conditions, you can use the elsif keyword after the if but before the end keywords. The elsif keyword allows many different conditions to be evaluated in the if/else statement. You can use as many elsif statements as you need.
+# The & method ('and' method) and the | method ('or method') can be used to evaluate multiple values in an if/else statement. In the & method, both the receiver and the argument need to be true for the statement to return true. In the | method, either the receiver or the argument can be true for the condition to return true.
+# The ! method ('not method') returns the opposite boolean of what it was called on. Here is an example: if young.&(male).!() and this is read "If you are not young and male".
 
-Now, play around with elsif, &(), |(), and !() to get the hang of how to use them.
-Create a variable called grade and set it equal to A, B, C, D or F. Use the above tools to print out one message if the grade is an A, one message if the grade is a B or a C, and one message if the grade is D or F.
-Create a variable called temperature and set it equal to a Fixnum to represent a number of degrees Fahrenheit. Check to see if temperature is within 60-80 degrees, and if it is then print out "It's balmy outside!", and a different message if it isn't. You will have to use a combination of a few of these: <() (less-than), <=() (less-than-or-equal-to), >() (greater-than), >=() (greater-than-or-equal-to) and &().
-Create a variable to store your first name. Then use if and else to print one message if your name begins with a letter between A and M, and a different message if it begins with a letter between N and Z. Hint: Remember the String#split method and the Array#at method from the section on "Arrays and ranges". Also, you can check if a number or letter is within a range by using the Range#include? method. For example: (0..4).include?(1) will return true because 1 is between 0 and 4.
+age = 25
+gender = :male
+young = age.<(26)
+male = gender.eql?(:male)
 
-
-For more complex branching conditions, you can use the elsif keyword after the if but before the end keywords. The elsif keyword allows many different conditions to be evaluated in the if/else statement. You can use as many elsif statements as you need.
-The & method ('and' method) and the | method ('or method') can be used to evaluate multiple values in an if/else statement. In the & method, both the receiver and the argument need to be true for the statement to return true. In the | method, either the receiver or the argument can be true for the condition to return true.
-The ! method ('not method') returns the opposite boolean of what it was called on. Here is an example: if young.&(male).!() and this is read "If you are not young and male".
-
-> age = 25
-> gender = :male
-
-> young = age.<(26)
-> male = gender.eql?(:male)
-
-> if young.&(male)
->   "Your insurance is going to be so expensive!!!"
-> elsif young.|(male)
->   "Your insurance is going to be pretty expensive."
-> else
->   "Your insurance is going to be expensive, but it could be worse."
-> end
+if young.&(male)
+  "Your insurance is going to be so expensive!!!"
+  elsif young.|(male)
+  "Your insurance is going to be pretty expensive."
+  else
+  "Your insurance is going to be expensive, but it could be worse."
+  end
 
 
 * Practice: Methods Using Branching and Booleans
 
-Make an Fixnum#absolutely_larger method that will add 1 to a number if it is positive or 0, and subtract 1 if it is negative.
+# Make an Fixnum#absolutely_larger method that will add 1 to a number if it is positive or 0, and subtract 1 if it is negative.
 
 class Fixnum
   define_method(:absolutely_larger?) do
@@ -45,7 +41,7 @@ class Fixnum
   end
 end
 
-Make an Fixnum#can_drink_alcohol? method that returns a boolean based on if the Fixnum is greater than or equal to 21.
+# Make an Fixnum#can_drink_alcohol? method that returns a boolean based on if the Fixnum is greater than or equal to 21.
 
 class Fixnum
   define_method(:can_drink_alcohol?) do
@@ -53,7 +49,7 @@ class Fixnum
   end
 end
 
-Make an Fixnum#has_two_digits? method which returns true if the Fixnum is between 10 and 99, or -10 and -99.
+# Make an Fixnum#has_two_digits? method which returns true if the Fixnum is between 10 and 99, or -10 and -99.
 
 class Fixnum
   define_method(:has_two_digits?) do
@@ -61,33 +57,33 @@ class Fixnum
   end
 end
 
-> class String
-*   define_method(:starts_with_vowel?) do
-*     vowels = ["a", "e", "i", "o", "u"]
-*     letters = self.split("")
-*     first_letter = letters.first()
-*     vowels.include?(first_letter)
-*   end
-* end
+class String
+  define_method(:starts_with_vowel?) do
+    vowels = ["a", "e", "i", "o", "u"]
+    letters = self.split("")
+    first_letter = letters.first()
+    vowels.include?(first_letter)
+  end
+end
 
-> "apple".starts_with_vowel?()
+"apple".starts_with_vowel?()
 => true
 
-abs means absolute value
-> class Fixnum
-*   define_method(:abs) do
-*     if self.>=(0)
-*       self
-*     else
-*       self.*(-1)
-*     end
-*   end
-* end
+# abs means absolute value
+class Fixnum
+define_method(:abs) do
+if self.>=(0)
+self
+else
+self.*(-1)
+end
+end
+end
 
 > -5.abs()
 => 5
 
-* Practice: Boolean Objects
+# Practice: Boolean Objects
 
 Integer:
 even?()

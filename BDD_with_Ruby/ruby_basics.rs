@@ -1,6 +1,6 @@
-Ruby Basics
+# Ruby Basics
 
-Ruby Basics: Practice Defining Methods with Arguments
+# Ruby Basics: Practice Defining Methods with Arguments
 
 class Fixnum
   define_method(:subtract) do |number_to_subtract|
